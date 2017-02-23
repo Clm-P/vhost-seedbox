@@ -62,4 +62,12 @@ server {
  location ^~ /share/ {
  deny all;
  }
+      location /UTILISATEUR 
+    {
+     include scgi_params;
+     scgi_pass 127.0.0.1:5001;
+     auth_basic "Restricted Area"; 
+     auth_basic_user_file "/etc/nginx/auth/seedbox_auth utilisateur";
+     }
+ 
 }
